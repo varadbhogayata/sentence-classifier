@@ -6,7 +6,21 @@
 
 ### Steps:
 1. Preprocessing 
-    * Create one csv file which stores all files(particularly all rows from each file) from **[labeled_articles](https://github.com/varadbhogayata/Sentence-Classification/tree/master/SentenceCorpus/labeled_articles)** folder ([__PreprocessedCSV.csv__](https://github.com/varadbhogayata/Sentence-Classification/blob/master/preprocessedCSV.csv) will be generated after executing cell[1] contaning all rows     
+    * Create one csv file which stores all files(particularly all rows from each file) from **[labeled_articles](https://github.com/varadbhogayata/Sentence-Classification/tree/master/SentenceCorpus/labeled_articles)** folder ([__PreprocessedCSV.csv__](https://github.com/varadbhogayata/Sentence-Classification/blob/master/preprocessedCSV.csv) will be generated after executing cell[1] contaning all rows
+    '''python
+   csv_file = "E:/STUDY/Placements/dishQ/SentenceCorpus/labeled_articles/preprocessedCSV.csv"  
+   path = "E:/STUDY/Placements/dishQ/SentenceCorpus/labeled_articles/*.txt"    # path of all txt files
+   files=glob.glob(path)  
+
+   # add all data of txt data into single csv file
+   for f in files:
+       with open(f, "r") as in_text:
+           in_reader = csv.reader(in_text, delimiter = '\t')
+           with open(csv_file, "a") as out_csv:
+               out_writer = csv.writer(out_csv)
+               for row in in_reader:
+                   out_writer.writerow(row)
+    '''
     * To remove __####Abstract__ and __####Introduction__ from original text files, convert csv file to pandas dataframe and remove those rows using pandas
     * Remove whitespace from the column **label** as some of the columns contain 'OWNX' and 'OWNX ', therefore consider this as two different classes.
     * Cleaning the data by using regex 
