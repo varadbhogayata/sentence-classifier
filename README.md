@@ -44,6 +44,4 @@
     * Plot Confusion matrix and accuracy score
     * Save the model so that it can be used directly again on this dataset
     * Test the model with inputing any sentence given from any files of [__unlabeled_articles__](https://github.com/varadbhogayata/Sentence-Classification/tree/master/SentenceCorpus/unlabeled_articles) folder 
-    ```python
-    
-    ```
+    ![result](https://github.com/varadbhogayata/Sentence-Classification/blob/master/Images/Output%20Image.JPG)
