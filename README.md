@@ -8,8 +8,8 @@
 1. Preprocessing 
     * Create one csv file which stores all files(particularly all rows from each file) from **[labeled_articles](https://github.com/varadbhogayata/Sentence-Classification/tree/master/SentenceCorpus/labeled_articles)** folder ([__PreprocessedCSV.csv__](https://github.com/varadbhogayata/Sentence-Classification/blob/master/preprocessedCSV.csv) will be generated after executing cell[1] contaning all rows
     ```python
-   csv_file = "E:/STUDY/Placements/dishQ/SentenceCorpus/labeled_articles/preprocessedCSV.csv"  
-   path = "E:/STUDY/Placements/dishQ/SentenceCorpus/labeled_articles/*.txt"    # path of all txt files
+   csv_file = "enter_your_path/preprocessedCSV.csv"  
+   path = "enter_your_path/labeled_articles/*.txt"    # path of all txt files
    files=glob.glob(path)  
 
    # add all txt data into single csv file
@@ -27,7 +27,7 @@
     * Collect stopwords from [__stopwords.txt__](https://github.com/varadbhogayata/Sentence-Classification/blob/master/SentenceCorpus/word_lists/stopwords.txt) file given in the data and store it in **stopword list** (Later will be used as input parameter to CountVectorizer)
     ```python
       # load stopwords from stopwords.txt
-      file_stopwords = open("E:\STUDY\Placements\dishQ\SentenceCorpus\word_lists/stopwords.txt","r")
+      file_stopwords = open("enter_your_path/word_lists/stopwords.txt","r")
       stopwords = []
       for w in file_stopwords:
           if w.endswith('\n'):
@@ -35,7 +35,7 @@
               stopwords.append(w)
     ```
     
-2. Tfidf features followed by SVM multiclass classification(oneVsOther)
+2. TF-IDF features followed by SVM multiclass classification(oneVsOther)
     * Store sentences data from pandas dataframe to __X__ and labels to __y__ and convert them to numpy vectors
     * Split data into training and testing with 80:20 ratio and set any random seed value so that we can produce the same result with exact same accuracy and weights
     * Create a model having pipeline of CountVectorizer, TfidfTransformer, LinearSVC functions
